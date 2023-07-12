@@ -43,5 +43,10 @@ export const theme = {
     surfaceDisabled: "rgba(27, 27, 31, 0.12)",
     onSurfaceDisabled: "rgba(27, 27, 31, 0.38)",
     backdrop: "rgba(47, 48, 56, 0.4)",
+    //Custom Colors
+    info: "#17A2B8",
+    success: "#28A745",
+    alert: "#FFC107",
+    danger: "#DC3545",
   },
 };
