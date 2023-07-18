@@ -3,7 +3,6 @@ import { Image, StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import { theme } from "../../theme/theme";
 import Icon from "react-native-paper/src/components/Icon";
-import { cyan500 } from "react-native-paper/src/styles/themes/v2/colors";
 import { darkTheme } from "../../theme/dark-theme";
 interface Props {
   login: (userName: string, password: string) => void;
@@ -46,6 +45,7 @@ export default function Login(props: Props) {
         mode="contained"
         buttonColor={theme.colors.info}
         onPress={() => props.login(userName, password)}
+        disabled={props.loginLoading}
       >
         Ingresar
       </Button>

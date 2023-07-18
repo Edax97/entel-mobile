@@ -5,7 +5,6 @@ export interface DispositivoAPIType {
   dis_id: number;
   dis_mas: number;
   dis_loc: string;
-  dis_locacion: string;
   dis_sensor_id: string;
   dis_nom: string;
   dis_maxt: string;

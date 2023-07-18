@@ -28,6 +28,11 @@ export const loginAPI = (nombreUsuario: string, clave: string) =>
     body: new URLSearchParams({ nombreUsuario, clave }),
   })
     .then<LoginAPIType>((data) => data.json())
+    .then((r) => {
+      console.log("Autenticacion", nombreUsuario, clave);
+      console.log("Response", r);
+      return r;
+    })
     .then(({ message, ...user }) => {
       if (message !== "OK") throw Error("Auth Error");
       return user;

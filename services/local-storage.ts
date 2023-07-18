@@ -1,6 +1,8 @@
-export function setLocal<T>(key: string, data: T) {
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export async function setLocal<T>(key: string, data: T) {
   try {
-    localStorage.setItem(key, JSON.stringify(data));
+    await AsyncStorage.setItem(key, JSON.stringify(data));
     return true;
   } catch (e) {
     console.log(e);
@@ -8,9 +10,9 @@ export function setLocal<T>(key: string, data: T) {
   }
 }
 
-export function getLocal<T>(key: string): T | null {
+export async function getLocal<T>(key: string): Promise<T | null> {
   try {
-    const itemString = localStorage.getItem(key);
+    const itemString = await AsyncStorage.getItem(key);
     if (!itemString) throw Error("Could not retrieve data");
     return JSON.parse(itemString);
   } catch (e) {
@@ -19,9 +21,9 @@ export function getLocal<T>(key: string): T | null {
   }
 }
 
-export function deleteLocal(key: string) {
+export async function deleteLocal(key: string) {
   try {
-    localStorage.removeItem(key);
+    await AsyncStorage.removeItem(key);
     return true;
   } catch (e) {
     console.log(e);
